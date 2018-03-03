@@ -105,7 +105,7 @@ public class Cycle1 {
 	   }
 	   
 	   public float getGPA() {
-	       return GPA;
+	       return GPA ;
 	   }
 	 
 	   public void setGPA(float GPA) {
