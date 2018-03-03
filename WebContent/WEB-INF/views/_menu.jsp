@@ -9,7 +9,7 @@
    
    <a href="${pageContext.request.contextPath}/markList">MARKS ENTRY</a>
    
-   <a href="${pageContext.request.contextPath}/detailsList">FEEDBACK</a>
+   <a href="${pageContext.request.contextPath}/feedbackList">FEEDBACK</a>
 
   
     

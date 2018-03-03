@@ -1425,5 +1425,328 @@ public class DBUtils {
       pstm.setString(1, details.getRollno());
   }
  
-  
+  public static List<Details> queryDetails1(Connection conn) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details1 a ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      ResultSet rs = pstm.executeQuery();
+      List<Details> list = new ArrayList<Details>();
+      while (rs.next()) {
+          String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details();
+          details.setRollno(Rollno);
+          details.setRegno(Regno);
+          details.setName(Name);
+          details.setDept(Dept);
+          details.setGPA( GPA );
+          details.setCounsellors(Counsellors);
+          details.setActions(Actions);
+          details.setDOC(DOC);
+          details.setTopic(Topic);
+          list.add(details);
+      }
+      return list;
+  }
+ 
+  public static Details findDetails1(Connection conn, String Rollno) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details1 a where a.Rollno=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Rollno);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details(Rollno, Regno, Name, Dept, DOC, Topic, Actions, GPA, Counsellors);
+          return details;
+      }
+      return null;
+  }
+ 
+  public static void updateDetails1(Connection conn, Details details) throws SQLException {
+      String sql = "Update Details1 set Regno =?, Name =?, Dept=?, GPA=?, DOC=?, Topic=?, Actions=?, Counsellors=? where Rollno=? ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRegno());
+      pstm.setString(2, details.getName());
+      pstm.setString(3, details.getDept());
+      pstm.setFloat(4, details.getGPA());
+      pstm.setString(8, details.getCounsellors());
+      pstm.setDate(5, details.getDOC());
+      pstm.setString(6, details.getTopic());
+      pstm.setString(7, details.getActions());
+      pstm.setString(9, details.getRollno());
+      pstm.executeUpdate();
+  }
+ 
+  public static void insertDetails1(Connection conn, Details details) throws SQLException {
+      String sql = "Insert into Details1(Rollno, Regno, Name, Dept, GPA, Counsellors, TOC, Topic, Actions) values (?,?,?,?,?,?,?,?,?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRollno());
+      pstm.setString(2, details.getRegno());
+      pstm.setString(3, details.getName());
+      pstm.setString(4, details.getDept());
+      pstm.setFloat(5, details.getGPA());
+      pstm.setString(6, details.getCounsellors());
+      pstm.setDate(7, details.getDOC());
+      pstm.setString(8, details.getTopic());
+      pstm.setString(9, details.getActions());
+ 
+      pstm.executeUpdate();
+  }
+ 
+  public static void deleteDetails1(Connection conn, String Rollno) throws SQLException {
+      String sql = "Delete from Details1 where Rollno = (?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, Rollno);
+ 
+      pstm.executeUpdate();
+  }
+  public static void searchDetails1(Connection conn, Details details) throws SQLException {
+      String sql = "Select ? from Details1 ";
+      
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      
+      pstm.setString(1, details.getRollno());
+  }
+ 
+  public static List<Details> queryDetails2(Connection conn) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details2 a ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      ResultSet rs = pstm.executeQuery();
+      List<Details> list = new ArrayList<Details>();
+      while (rs.next()) {
+          String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details();
+          details.setRollno(Rollno);
+          details.setRegno(Regno);
+          details.setName(Name);
+          details.setDept(Dept);
+          details.setGPA( GPA );
+          details.setCounsellors(Counsellors);
+          details.setActions(Actions);
+          details.setDOC(DOC);
+          details.setTopic(Topic);
+          list.add(details);
+      }
+      return list;
+  }
+ 
+  public static Details findDetails2(Connection conn, String Rollno) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details2 a where a.Rollno=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Rollno);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details(Rollno, Regno, Name, Dept, DOC, Topic, Actions, GPA, Counsellors);
+          return details;
+      }
+      return null;
+  }
+ 
+  public static void updateDetails2(Connection conn, Details details) throws SQLException {
+      String sql = "Update Details2 set Regno =?, Name =?, Dept=?, GPA=?, DOC=?, Topic=?, Actions=?, Counsellors=? where Rollno=? ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRegno());
+      pstm.setString(2, details.getName());
+      pstm.setString(3, details.getDept());
+      pstm.setFloat(4, details.getGPA());
+      pstm.setString(8, details.getCounsellors());
+      pstm.setDate(5, details.getDOC());
+      pstm.setString(6, details.getTopic());
+      pstm.setString(7, details.getActions());
+      pstm.setString(9, details.getRollno());
+      pstm.executeUpdate();
+  }
+ 
+  public static void insertDetails2(Connection conn, Details details) throws SQLException {
+      String sql = "Insert into Details2(Rollno, Regno, Name, Dept, GPA, Counsellors, TOC, Topic, Actions) values (?,?,?,?,?,?,?,?,?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRollno());
+      pstm.setString(2, details.getRegno());
+      pstm.setString(3, details.getName());
+      pstm.setString(4, details.getDept());
+      pstm.setFloat(5, details.getGPA());
+      pstm.setString(6, details.getCounsellors());
+      pstm.setDate(7, details.getDOC());
+      pstm.setString(8, details.getTopic());
+      pstm.setString(9, details.getActions());
+ 
+      pstm.executeUpdate();
+  }
+ 
+  public static void deleteDetails2(Connection conn, String Rollno) throws SQLException {
+      String sql = "Delete from Details2 where Rollno = (?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, Rollno);
+ 
+      pstm.executeUpdate();
+  }
+  public static void searchDetails2(Connection conn, Details details) throws SQLException {
+      String sql = "Select ? from Details2 ";
+      
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      
+      pstm.setString(1, details.getRollno());
+  }
+ 
+  public static List<Details> queryDetails3(Connection conn) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details3 a ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      ResultSet rs = pstm.executeQuery();
+      List<Details> list = new ArrayList<Details>();
+      while (rs.next()) {
+          String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details();
+          details.setRollno(Rollno);
+          details.setRegno(Regno);
+          details.setName(Name);
+          details.setDept(Dept);
+          details.setGPA( GPA );
+          details.setCounsellors(Counsellors);
+          details.setActions(Actions);
+          details.setDOC(DOC);
+          details.setTopic(Topic);
+          list.add(details);
+      }
+      return list;
+  }
+ 
+  public static Details findDetails3(Connection conn, String Rollno) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.DOC, a.Actions, a.Topic, a.GPA, a.Counsellors from Details3 a where a.Rollno=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Rollno);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          String Dept = rs.getString("Dept");
+          float GPA = rs.getFloat("GPA");
+          Date DOC = rs.getDate("DOC");
+          String Topic = rs.getString("Topic");
+          String Actions = rs.getString("Actions");
+          String Counsellors = rs.getString("Counsellors");
+          Details details = new Details(Rollno, Regno, Name, Dept, DOC, Topic, Actions, GPA, Counsellors);
+          return details;
+      }
+      return null;
+  }
+ 
+  public static void updateDetails3(Connection conn, Details details) throws SQLException {
+      String sql = "Update Details3 set Regno =?, Name =?, Dept=?, GPA=?, DOC=?, Topic=?, Actions=?, Counsellors=? where Rollno=? ";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRegno());
+      pstm.setString(2, details.getName());
+      pstm.setString(3, details.getDept());
+      pstm.setFloat(4, details.getGPA());
+      pstm.setString(8, details.getCounsellors());
+      pstm.setDate(5, details.getDOC());
+      pstm.setString(6, details.getTopic());
+      pstm.setString(7, details.getActions());
+      pstm.setString(9, details.getRollno());
+      pstm.executeUpdate();
+  }
+ 
+  public static void insertDetails3(Connection conn, Details details) throws SQLException {
+      String sql = "Insert into Details3(Rollno, Regno, Name, Dept, GPA, Counsellors, TOC, Topic, Actions) values (?,?,?,?,?,?,?,?,?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, details.getRollno());
+      pstm.setString(2, details.getRegno());
+      pstm.setString(3, details.getName());
+      pstm.setString(4, details.getDept());
+      pstm.setFloat(5, details.getGPA());
+      pstm.setString(6, details.getCounsellors());
+      pstm.setDate(7, details.getDOC());
+      pstm.setString(8, details.getTopic());
+      pstm.setString(9, details.getActions());
+ 
+      pstm.executeUpdate();
+  }
+ 
+  public static void deleteDetails3(Connection conn, String Rollno) throws SQLException {
+      String sql = "Delete from Details3 where Rollno = (?)";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+      pstm.setString(1, Rollno);
+ 
+      pstm.executeUpdate();
+  }
+  public static void searchDetails3(Connection conn, Details details) throws SQLException {
+      String sql = "Select ? from Details3 ";
+      
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      
+      pstm.setString(1, details.getRollno());
+  }
+   
 }
