@@ -18,9 +18,13 @@
     
    <p style="color: red;">${errorString}</p>  
     <form method="POST" action="doCycle2">
-             <td>
-             <input type="text" name="Dept" value="${cycle1.Dept}" />
-             <input type="submit" value="Go" /></td>
+           <%--   <td>
+             <input type="text" name="Dept"  />
+             <input type="submit" value="Go" /></td> --%> 
+               <select name="Dept">
+                   <option value="Cse">Cse</option>
+               </select>
+               <input type="submit" value="Go" />
              </form>  
    
    <table border="1" cellpadding="5" cellspacing="1" >
@@ -29,6 +33,7 @@
           <th>Rollno</th>
           <th >Regno</th>
           <th >Name</th>
+          <th>Dept</th>
           <th >s1</th>
           <th>s2</th>
           <th> s3</th>
@@ -50,6 +55,7 @@
              <td><%= cycle2.getRollno() %></td>
              <td><%= cycle2.getRegno() %></td>
              <td><%= cycle2.getName() %></td>
+             <td><%= cycle2.getDept() %></td>
              <td><%= cycle2.gets1() %></td>
              <td><%= cycle2.gets2() %></td>
              <td><%= cycle2.gets3() %></td>
