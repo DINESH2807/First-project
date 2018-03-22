@@ -18,10 +18,11 @@
     <%-- --%>
    <p style="color: red;">${errorString}</p>  
     <form method="POST" action="doCycle1">
-             <td>
-             <input type="text" name="Dept" value="${cycle1.Dept}" />
-             <input type="submit" value="Go" /></td>
-             </form>  
+            <select name="Dept">
+                   <option value="Cse">Cse</option>
+               </select>
+               <input type="submit" value="Go" />
+    </form> 
    
    <table border="1" cellpadding="5" cellspacing="1" >
        <tr>

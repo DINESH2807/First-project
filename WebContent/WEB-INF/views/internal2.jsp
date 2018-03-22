@@ -17,7 +17,12 @@
     <h3>ADD DETAIL</h3>
     
    <p style="color: red;">${errorString}</p>  
-   
+   <form method="POST" action="doInternal2">
+            <select name="Dept">
+                   <option value="Cse">Cse</option>
+               </select>
+               <input type="submit" value="Go" />
+    </form> 
    <table border="1" cellpadding="5" cellspacing="1" >
        <tr>
        

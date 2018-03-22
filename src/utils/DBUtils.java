@@ -546,6 +546,33 @@ public class DBUtils {
       pstm.setString(11, internal1.getRollno());
       pstm.executeUpdate();
   }
+  
+  public static Internal1 findDept3(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Internal1 a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Internal1 cycle2 = new Internal1(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
  
   public static void insertInternal1(Connection conn, Internal1 internal1) throws SQLException {
       String sql = "Insert into Internal1(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6) values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -645,6 +672,33 @@ public class DBUtils {
 
           Internal2 internal2 = new Internal2(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
           return internal2;
+      }
+      return null;
+  }
+  
+  public static Internal2 findDept4(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Internal2 a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Internal2 cycle2 = new Internal2(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
       }
       return null;
   }
@@ -771,6 +825,32 @@ public class DBUtils {
       return null;
   }
  
+  public static Model findDept5(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Model a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Model cycle2 = new Model(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
   public static void updateModel(Connection conn, Model model) throws SQLException {
       String sql = "Update Model set Regno =?, Name =?, Dept=?, GPA=?, s1=?, s2=?, s3=?, s4=?, s5=?, s6=? where Rollno=? ";
  
@@ -912,6 +992,32 @@ public class DBUtils {
       pstm.setString(11, remodel.getRollno());
       pstm.executeUpdate();
   }
+  public static Remodel findDept6(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Remodel a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Remodel cycle2 = new Remodel(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
  
   public static void insertRemodel(Connection conn, Remodel remodel) throws SQLException {
       String sql = "Insert into Remodel(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6) values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -1015,6 +1121,32 @@ public class DBUtils {
       return null;
   }
  
+  public static Revision findDept7(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Revision a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Revision cycle2 = new Revision(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
   public static void updateRevision(Connection conn, Revision revision) throws SQLException {
       String sql = "Update Revision set Regno =?, Name =?, Dept=?, GPA=?, s1=?, s2=?, s3=?, s4=?, s5=?, s6=? where Rollno=? ";
  
@@ -1137,6 +1269,32 @@ public class DBUtils {
       return null;
   }
  
+  public static Retest1 findDept8(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Retest1 a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Retest1 cycle2 = new Retest1(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
   public static void updateRetest1(Connection conn, Retest1 retest1) throws SQLException {
       String sql = "Update Retest1 set Regno =?, Name =?, Dept=?, GPA=?, s1=?, s2=?, s3=?, s4=?, s5=?, s6=? where Rollno=? ";
  
@@ -1259,7 +1417,33 @@ public class DBUtils {
       return null;
   }
  
-  public static void updateRetest2(Connection conn, Retest1 retest2) throws SQLException {
+  public static Retest2 findDept9(Connection conn, String Dept) throws SQLException {
+      String sql = "Select a.Rollno, a.Regno, a.Name, a.Dept, a.GPA, a.s1, a.s2, a.s3, a.s4, a.s5, a.s6  from Retest2 a where a.Dept=?";
+ 
+      PreparedStatement pstm = conn.prepareStatement(sql);
+      pstm.setString(1, Dept);
+ 
+      ResultSet rs = pstm.executeQuery();
+ 
+      while (rs.next()) {
+    	  
+    	  String Rollno = rs.getString("Rollno");
+          String Regno = rs.getString("Regno");
+          String Name = rs.getString("Name");
+          float GPA = rs.getFloat("GPA");
+          float s1 = rs.getFloat("s1");
+          float s2 = rs.getFloat("s2");
+          float s3 = rs.getFloat("s3");
+          float s4 = rs.getFloat("s4");
+          float s5 = rs.getFloat("s5");
+          float s6 = rs.getFloat("s6");
+
+          Retest2 cycle2 = new Retest2(Rollno, Regno, Name, Dept, GPA, s1, s2, s3, s4, s5, s6);
+          return cycle2;
+      }
+      return null;
+  }
+  public static void updateRetest2(Connection conn, Retest2 retest2) throws SQLException {
       String sql = "Update Retest2 set Regno =?, Name =?, Dept=?, GPA=?, s1=?, s2=?, s3=?, s4=?, s5=?, s6=? where Rollno=? ";
  
       PreparedStatement pstm = conn.prepareStatement(sql);
